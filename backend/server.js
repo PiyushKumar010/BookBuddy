@@ -7,9 +7,14 @@ import passport from './config/passport.js';
 import { connectDB } from './config/db.js';
 import bookRoutes from './routes/book.route.js';
 import userRoutes from './routes/user.route.js';
+import cors from 'cors';
 
 // Load environment variables from .env file
 dotenv.config();
+app.use(cors({
+  origin: "https://bookbuddy-iota.vercel.app",
+  credentials: true,
+}));
 
 const app = express();
 const PORT = process.env.PORT || 5000;

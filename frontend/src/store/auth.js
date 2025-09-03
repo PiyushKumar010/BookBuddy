@@ -1,5 +1,7 @@
 import { create } from "zustand";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 export const useAuthStore = create((set) => ({
   user: JSON.parse(localStorage.getItem("user")) || null,
   setUser: (user) => {
@@ -8,7 +10,7 @@ export const useAuthStore = create((set) => ({
     else localStorage.removeItem("user");
   },
   login: async (email, password) => {
-    const res = await fetch("/api/users/login", {
+    const res = await fetch(`${BACKEND_URL}/api/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -29,7 +31,7 @@ export const useAuthStore = create((set) => ({
     return { success: false, message: data.message };
   },
   register: async (name, email, password) => {
-    const res = await fetch("/api/users/register", {
+    const res = await fetch(`${BACKEND_URL}/api/users/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),
@@ -52,7 +54,7 @@ export const useAuthStore = create((set) => ({
   logout: () => {
     set({ user: null });
     localStorage.removeItem("user");
-    // Clear books on logout
+    
     try {
       const { clearBooks } = require("./book");
       if (clearBooks) clearBooks();

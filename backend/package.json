@@ -1,17 +1,16 @@
 {
-  "name": "bookbuddy",
+  "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon backend/server.js"
+    "test": "4",
+    "start": "node server.js"
   },
-  "type": "module",
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@chakra-ui/react": "^2.10.9",
+    "@chakra-ui/react": "^3.26.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "bcryptjs": "^3.0.2",
@@ -22,7 +21,7 @@
     "express-session": "^1.18.2",
     "framer-motion": "^12.23.12",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.17.1",
+    "mongoose": "^8.18.0",
     "nodemon": "^3.1.10",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
