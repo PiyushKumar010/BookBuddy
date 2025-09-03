@@ -11,13 +11,14 @@ import cors from 'cors';
 
 // Load environment variables from .env file
 dotenv.config();
-app.use(cors({
-  origin: "https://bookbuddy-iota.vercel.app",
-  credentials: true,
-}));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+app.use(cors({
+  origin: ["https://bookbuddy-iota.vercel.app"," http://localhost:5173"],
+  credentials: true,
+}));
 
 app.use(express.json());
 
